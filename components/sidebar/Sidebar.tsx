@@ -23,6 +23,7 @@ export default function Sidebar(_props: SidebarProps) {
         flex-col
         gap-3
         overflow-hidden
+        hidden lg:block
       "
     >
       {/* Background image */}

@@ -5,7 +5,7 @@ import { BellIcon } from "../icons/BellIcon";
 
 export default function GlobalHeader() {
   return (
-    <header className="h-14 bg-[var(--bg-surface)]">
+    <header className="h-14 bg-[var(--bg-surface)] sticky top-0 z-50">
       <div className="mx-auto h-full px-4 flex items-center justify-between">
         
         {/* LEFT: Logo */}

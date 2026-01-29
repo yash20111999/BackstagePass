@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../styles/confetti.css";
 
 /* Design Tokens */
 :root {
@@ -18,20 +19,6 @@
 
   --sidebar-overlay: rgba(48, 0, 64, 0.06);
 
-}
-
-.mask-inner-left {
-  --r: 16px; /* control inner radius here */
-
-  -webkit-mask:
-    radial-gradient(var(--r) at var(--r) 0, #0000 98%, #000 101%)
-      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
-    conic-gradient(#000 0 0) padding-box;
-
-  mask:
-    radial-gradient(var(--r) at var(--r) 0, #0000 98%, #000 101%)
-      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
-    conic-gradient(#000 0 0) padding-box;
 }
 
 

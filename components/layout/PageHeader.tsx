@@ -8,6 +8,7 @@ export default function PageHeader() {
         border-t border-b
         border-[var(--border-default)]
         bg-[var(--bg-surface)]
+        hidden lg:block
       "
     >
       <div

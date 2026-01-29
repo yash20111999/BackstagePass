@@ -11,16 +11,25 @@ const SeeOthersSharedSection: React.FC<SeeOthersSharedSectionProps> = ({
   participantCount = 85,
 }) => {
   return (
-    <div className="px-8 py-6">
+    <div className="px-4 sm:px-8 pt-2">
       <div className="flex flex-col items-center text-center gap-2">
-        {/* Heading row */}
-        <div className="flex items-center gap-2">
+        {/* Heading */}
+        <div
+          className="
+            flex
+            flex-col
+            items-center
+            gap-1
+            sm:flex-row
+            sm:gap-2
+          "
+        >
           <span className="text-xl font-semibold text-[var(--text-primary)]">
             See what others
           </span>
 
-          {/* Inline avatar group */}
-          <div className="flex -space-x-2">
+          {/* Avatar group */}
+          <div className="flex -space-x-2 my-1 sm:my-0">
             {[0, 1, 2].map((i) => (
               <Image
                 key={i}
@@ -28,11 +37,7 @@ const SeeOthersSharedSection: React.FC<SeeOthersSharedSectionProps> = ({
                 alt="Participant"
                 width={28}
                 height={28}
-                className="
-                  w-7 h-7
-                  rounded-full
-                  border border-white
-                "
+                className="w-7 h-7 rounded-full border border-white"
               />
             ))}
           </div>
@@ -43,7 +48,7 @@ const SeeOthersSharedSection: React.FC<SeeOthersSharedSectionProps> = ({
         </div>
 
         {/* Subtext */}
-        <p className="text-base text-[var(--text-secondary)]">
+        <p className="text-sm sm:text-base text-[var(--text-primary)]">
           <span className="font-semibold">{participantCount}+</span> participants already completed
         </p>
       </div>
