@@ -19,9 +19,9 @@ const Feed: React.FC<FeedProps> = ({ posts }) => {
   regularPosts.splice(0, 1); // Remove the first post as it's displayed in "Your Submission" section
   return (
     <div className="flex flex-col w-full min-w-0 h-[calc(100dvh-100px)] min-h-[600px] overflow-y-auto">
-      <div className="bg-(--bg-page) min-h-screen max-w-3xl self-center ">
+      <div className="bg-[var(--bg-page)] min-h-screen max-w-3xl self-center">
         {/* <CheckInSection timeLeft="20h 44m" /> */}
-
+        <YourSubmissionPost post={post} />
         <div
           className="
           flex flex-col gap-6
@@ -29,7 +29,6 @@ const Feed: React.FC<FeedProps> = ({ posts }) => {
           rounded-2xl px-3 py-3
         "
         >
-          <YourSubmissionPost post={post} />
           {regularPosts.length > 0 && (
             <SeeOthersSharedSection participantCount={85} />
           )}

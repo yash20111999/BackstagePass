@@ -35,8 +35,8 @@ export function FireIcon({ className }: { className?: string }) {
           y2="1.01696"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF4C0D" />
-          <stop offset="1" stop-color="#FC9502" />
+          <stop stopColor="#FF4C0D" />
+          <stop offset="1" stopColor="#FC9502" />
         </linearGradient>
       </defs>
     </svg>

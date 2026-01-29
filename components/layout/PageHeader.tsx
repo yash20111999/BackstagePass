@@ -33,7 +33,7 @@ export default function PageHeader() {
               font-semibold
             "
           >
-            <BackIcon />
+            <BackIcon className="text-[var(--text-primary)] w-4 h-4"/>
             <span>Back</span>
           </button>
 
@@ -65,7 +65,7 @@ export default function PageHeader() {
           "
         >
           <span>9-Day Fitness Challenge</span>
-          <InfoIcon />
+          <InfoIcon className="text-[var(--text-primary)]"/>
         </div>
       </div>
     </div>

@@ -28,7 +28,7 @@ const FeedPost: React.FC<FeedPostProps> = ({
       {/* Pinned banner */}
       {post.isPinned && isPinnedSection && (
         <div className="px-4 py-2 text-sm flex items-center gap-2 bg-[var(--bg-surface)] border-b border-[var(--border-default)]">
-          <PinIcon className="w-3 h-3" />
+          <PinIcon className="w-3 h-3 text-[var(--text-primary)]" />
           <span className="font-medium text-[var(--text-primary)]">
             This is a pinned post
           </span>
@@ -79,7 +79,7 @@ const FeedPost: React.FC<FeedPostProps> = ({
             {post.items && post.items.length > 0 && (
               <div className="mt-4 space-y-2">
                 {post.items.map((item) => (
-                  <div key={item.number} className="flex items-center gap-3">
+                  <div key={item.number} className="flex items-center gap-3 text-[var(--text-primary)]">
                     <div
                       className="
                         w-6 h-6
@@ -127,6 +127,8 @@ const FeedPost: React.FC<FeedPostProps> = ({
                     px-3 py-1.5
                     rounded-full
                     bg-[var(--bg-muted)]
+                    border border-[var(--border-default)]
+                    text-[var(--text-primary)]
                   "
                 >
                   🙏 <span>{post.likes}</span>
@@ -137,21 +139,23 @@ const FeedPost: React.FC<FeedPostProps> = ({
                     w-9 h-9
                     rounded-full
                     bg-[var(--bg-muted)]
+                    border border-[var(--border-default)]
                     flex items-center justify-center
                   "
                 >
-                  <SmileIcon />
+                  <SmileIcon className="w-5 h-5 text-[var(--text-primary)]" />
                 </button>
 
                 <button
                   className="
                     w-9 h-9
                     rounded-full
+                    border border-[var(--border-default)]
                     bg-[var(--bg-muted)]
                     flex items-center justify-center
                   "
                 >
-                  <MessageIcon className="w-5 h-5" />
+                  <MessageIcon className="w-5 h-5 text-[var(--text-primary)]" />
                 </button>
               </div>
 
