@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
+/* Design Tokens */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg-page: #F7F6FC;
+  --bg-surface: #FFFFFF;
+  --bg-sidebar: #EEF0F6;
+  --bg-muted: #F1F2F6;
+
+  --text-primary: #111827;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+
+  --border-default: #E6E8EF;
+
+  --accent-primary: #8D6500;
+  --accent-success: #22C55E;
+
+  --sidebar-overlay: rgba(48, 0, 64, 0.06);
+
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+.mask-inner-left {
+  --r: 16px; /* control inner radius here */
+
+  -webkit-mask:
+    radial-gradient(var(--r) at var(--r) 0, #0000 98%, #000 101%)
+      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
+    conic-gradient(#000 0 0) padding-box;
+
+  mask:
+    radial-gradient(var(--r) at var(--r) 0, #0000 98%, #000 101%)
+      calc(-1 * var(--r)) 100% / 100% var(--r) repeat-x,
+    conic-gradient(#000 0 0) padding-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.dark {
+  --bg-page: #000000;
+  --bg-surface: #1A191B;
+  --bg-sidebar: #141416;
+  --bg-muted: #232225;
+
+  --text-primary: #EDEDED;
+  --text-secondary: #A1A1AA;
+  --text-muted: #71717A;
+
+  --border-default: #2A2A2E;
+
+  --accent-primary: #8D6500;
+  --accent-success: #22C55E;
+
+  --sidebar-overlay: rgba(48, 0, 64, 0.06);
 }
