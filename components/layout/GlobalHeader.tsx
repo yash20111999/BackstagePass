@@ -1,10 +1,11 @@
+import Image from "next/image";
 import { LogoIcon } from "../icons/LogoIcon";
 import { FireIcon } from "../icons/FireIcon";
 import { BellIcon } from "../icons/BellIcon";
 
 export default function GlobalHeader() {
   return (
-    <header className="h-14 bg-(--bg-surface)">
+    <header className="h-14 bg-[var(--bg-surface)]">
       <div className="mx-auto h-full px-4 flex items-center justify-between">
         
         {/* LEFT: Logo */}
@@ -14,8 +15,8 @@ export default function GlobalHeader() {
 
           {/* Brand */}
         <span className="text-lg font-semibold">
-          <span className="text-(--text-primary)">Backstage</span>
-          <span className="text-(--accent-primary)">Pass</span>
+          <span className="text-[var(--text-primary)]">Backstage</span>
+          <span className="text-[var(--accent-primary)]">Pass</span>
         </span>
 
         </div>
@@ -46,10 +47,12 @@ export default function GlobalHeader() {
           <BellIcon className="w-8 h-8" />
 
           {/* Avatar */}
-          <div className="w-8 h-8 rounded-full overflow-hidden border border-border">
-            <img
+          <div className="w-8 h-8 rounded-full overflow-hidden border border-[var(--border-default)]">
+            <Image
               src="https://i.pravatar.cc/40?img=1"
               alt="User"
+              width={32}
+              height={32}
               className="w-full h-full object-cover"
             />
           </div>

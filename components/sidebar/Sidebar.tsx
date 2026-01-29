@@ -1,15 +1,21 @@
 import { ClockIcon } from "../icons/ClockIcon";
 import { LockIcon } from "../icons/LockIcon";
+import { ChallengeDay } from "@/data/challenge";
 
-export default function Sidebar() {
+interface SidebarProps {
+  days?: ChallengeDay[];
+}
+
+export default function Sidebar(_props: SidebarProps) {
   return (
     <aside
       className="
         relative
         w-[18%]
         h-[calc(100dvh-100px)]
-        max-w-[260px]
-        min-w-[220px]
+        min-h-[600px]
+        max-w-65
+        min-w-55
         pt-4
         pb-6
         pl-2

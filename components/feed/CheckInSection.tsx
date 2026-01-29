@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 
 interface CheckInSectionProps {
   timeLeft?: string;
@@ -15,7 +16,7 @@ const CheckInSection: React.FC<CheckInSectionProps> = ({
     <div className="py-6">
       {/* Header */}
       <div className="flex items-center justify-center gap-3 mb-4">
-        <h3 className="text-base sm:text-lg font-semibold text-[var(--text-primary)]">
+        <h3 className="text-lg font-semibold text-[var(--text-primary)]">
           Today&apos;s check-in
         </h3>
 
@@ -40,14 +41,16 @@ const CheckInSection: React.FC<CheckInSectionProps> = ({
             w-full
             bg-white
             rounded-[22px]
-            px-4 sm:px-5
-            py-3 sm:py-3.5
+            px-5
+            py-3.5
           "
         >
-          <img
+          <Image
             src="https://i.pravatar.cc/40?img=1"
             alt="Your avatar"
-            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex-shrink-0"
+            width={36}
+            height={36}
+            className="w-9 h-9 rounded-full flex-shrink-0"
           />
 
           <input
@@ -59,7 +62,7 @@ const CheckInSection: React.FC<CheckInSectionProps> = ({
               flex-1
               bg-transparent
               outline-none
-              text-sm sm:text-base
+              text-base
               text-[var(--text-primary)]
               placeholder-[var(--text-secondary)]
             "

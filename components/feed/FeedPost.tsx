@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { FeedPostData } from "@/data/feed";
 import { PinIcon } from "../icons/PinIcon";
 import { MessageIcon } from "../icons/MessageIcon";
@@ -35,16 +36,18 @@ const FeedPost: React.FC<FeedPostProps> = ({
       )}
 
       {/* Content */}
-      <div className="p-4 sm:p-6">
+      <div className="p-4">
         <div className="flex gap-4">
 
           <div className="flex-1 min-w-0">
             {/* Header */}
             <div className="flex items-start gap-2 align-middle">
               {/* Avatar */}
-              <img
+              <Image
                 src={post.avatarUrl}
                 alt={post.author}
+                width={48}
+                height={48}
                 className="w-12 h-12 rounded-full object-cover"
               />
               <div>
@@ -73,7 +76,7 @@ const FeedPost: React.FC<FeedPostProps> = ({
             )}
 
             {/* Checklist items */}
-            {post.items?.length > 0 && (
+            {post.items && post.items.length > 0 && (
               <div className="mt-4 space-y-2">
                 {post.items.map((item) => (
                   <div key={item.number} className="flex items-center gap-3">
@@ -98,9 +101,11 @@ const FeedPost: React.FC<FeedPostProps> = ({
             {/* Media */}
             {post.mediaUrl && (
               <div className="mt-4 rounded-xl overflow-hidden">
-                <img
+                <Image
                   src={post.mediaUrl}
                   alt="Post media"
+                  width={800}
+                  height={600}
                   className="w-full object-cover"
                 />
               </div>

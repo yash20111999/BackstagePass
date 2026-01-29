@@ -12,9 +12,9 @@ export default function Home() {
     <PageWrapper>
       <GlobalHeader />
       <PageHeader />
-        <div className="flex flex-col lg:flex-row justify-between w-full mx-auto gap-4 lg:gap-8">
+        <div className="flex flex-row justify-between w-full mx-auto gap-8">
             <Sidebar days={challengeDays} />
-            <div className="flex flex-col w-full min-w-0 h-[calc(100dvh-100px)] overflow-y-auto">
+            <div className="flex flex-col w-full min-w-0 h-[calc(100dvh-100px)] min-h-[600px] overflow-y-auto">
                 
                 <Feed posts={feedData} />
             </div>
