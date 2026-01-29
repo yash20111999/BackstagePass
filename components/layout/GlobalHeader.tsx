@@ -110,7 +110,6 @@ export default function GlobalHeader() {
               h-8
               px-3 py-1
               rounded-full
-
               bg-[var(--bg-muted)]
               text-[var(--text-primary)]
               text-sm
@@ -123,20 +122,11 @@ export default function GlobalHeader() {
 
           {/* Notification */}
           <button className="p-1 rounded-full hover:bg-[var(--bg-muted)] cursor-pointer">
-            <BellIcon className="w-6 h-6 text-[var(--text-primary)]" />
+            <BellIcon className="w-8 h-8 text-[var(--text-primary)]" />
           </button>
 
           {/* Avatar */}
           <ProfileMenu />
-          {/* <div className="w-8 h-8 rounded-full overflow-hidden border border-[var(--border-default)]">
-            <Image
-              src="https://i.pravatar.cc/40?img=1"
-              alt="User"
-              width={32}
-              height={32}
-              className="w-full h-full object-cover"
-            />
-          </div> */}
         </div>
       </div>
     </header>
