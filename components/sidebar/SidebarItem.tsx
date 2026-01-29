@@ -59,9 +59,6 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     >
       {/* LEFT CONTENT */}
       <div className={`flex items-center gap-1.5 ${textClasses}`}>
-        {isActive && (
-          <ClockIcon className="w-5 h-5 text-[var(--text-primary)]" />
-        )}
         <span className="text-sm">Day - {dayNumber}</span>
       </div>
 
