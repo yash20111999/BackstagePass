@@ -31,6 +31,7 @@ export default function PageHeader() {
               text-[var(--text-primary)]
               text-sm
               font-semibold
+              cursor-pointer hover:text-[var(--text-secondary)]
             "
           >
             <BackIcon className="text-[var(--text-primary)] w-4 h-4"/>

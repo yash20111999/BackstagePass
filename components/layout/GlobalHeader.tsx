@@ -20,11 +20,11 @@ function ProfileMenu() {
     localStorage.setItem("theme", nextTheme);
   };
   return (
-    <div className="relative">
+    <div className="relative cursor-pointer">
       {/* Profile icon */}
       <button
         onClick={() => setOpen(!open)}
-        className="w-8 h-8 rounded-full overflow-hidden border border-[var(--border-default)]"
+        className="w-8 h-8 rounded-full overflow-hidden cursor-pointer border border-[var(--border-default)]"
       >
         <Image
           src="https://i.pravatar.cc/40?img=1"
