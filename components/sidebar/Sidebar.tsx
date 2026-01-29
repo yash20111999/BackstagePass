@@ -1,13 +1,22 @@
-import { CheckIcon } from "../icons/CheckIcon";
-import { ClockIcon } from "../icons/ClockIcon";
-import { LockIcon } from "../icons/LockIcon";
+"use client";
+
+import React, { useState } from 'react';
 import { ChallengeDay } from "@/data/challenge";
+import SidebarItem from './SidebarItem';
 
 interface SidebarProps {
-  days?: ChallengeDay[];
+  days: ChallengeDay[];
 }
 
-export default function Sidebar(_props: SidebarProps) {
+export default function Sidebar({ days }: SidebarProps) {
+  // Find the initially active day from props, or default to the first non-locked day.
+  const initialActiveDay = days.find(d => d.isActive)?.dayNumber || days.find(d => !d.isLocked)?.dayNumber || 1;
+  const [activeDay, setActiveDay] = useState(initialActiveDay);
+
+  const handleDayClick = (dayNumber: number) => {
+    setActiveDay(dayNumber);
+  };
+  
   return (
     <aside
       className="
@@ -41,7 +50,7 @@ export default function Sidebar(_props: SidebarProps) {
 
       {/* Content */}
       <div className="relative z-20 flex flex-col gap-3">
-        {/* Active Day */}
+        {/* This empty div is preserved from the original layout to maintain visual consistency. */}
         <div
             className="
               h-7
@@ -50,47 +59,17 @@ export default function Sidebar(_props: SidebarProps) {
               items-center
               justify-between
             "
-          ></div>
-        <div
-          className="
-            h-12
-            px-4
-            flex
-            items-center
-            justify-between
-            rounded-full
-            bg-[var(--bg-page)]
-          "
         >
-          <div className="flex felx-col gap-1.5">
-            <ClockIcon className="w-5 h-5 text-[var(--text-primary)]" /> 
-            <span className="text-sm font-semibold text-[var(--text-primary)]">
-              Day - 1
-            </span>
-          </div>
-          <div className="w-5 h-5 rounded-full bg-[var(--accent-success)] flex items-center justify-center">
-            <CheckIcon className="w-3 h-3 text-[var(--bg-page)]"/>
-          </div>
         </div>
-
-        {/* Inactive Days */}
-        {Array.from({ length: 8 }).map((_, index) => (
-          <div
-            key={index}
-            className="
-              h-12
-              px-4
-              flex
-              items-center
-              justify-between
-            "
-          >
-            <span className="text-sm font-medium text-[var(--text-secondary)]">
-              Day - {index + 2}
-            </span>
-
-            <LockIcon className="w-5 h-5 text-[var(--text-primary)]" />
-          </div>
+        
+        {days.map((day) => (
+          <SidebarItem
+            key={day.dayNumber}
+            dayNumber={day.dayNumber}
+            isActive={day.dayNumber === activeDay}
+            isLocked={day.isLocked}
+            onClick={() => handleDayClick(day.dayNumber)}
+          />
         ))}
       </div>
     </aside>

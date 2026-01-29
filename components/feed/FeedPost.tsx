@@ -59,7 +59,7 @@ const FeedPost: React.FC<FeedPostProps> = ({
                 </p>
               </div>
 
-              <button className="ml-auto text-[var(--text-secondary)]">
+              <button className="ml-auto p-1 rounded-full text-[var(--text-secondary)] hover:bg-[var(--bg-muted)] cursor-pointer">
                 <svg width="20" height="20" fill="currentColor">
                   <circle cx="4" cy="10" r="1.5" />
                   <circle cx="10" cy="10" r="1.5" />
@@ -129,6 +129,8 @@ const FeedPost: React.FC<FeedPostProps> = ({
                     bg-[var(--bg-muted)]
                     border border-[var(--border-default)]
                     text-[var(--text-primary)]
+                    cursor-pointer
+                    hover:border-[var(--text-secondary)]
                   "
                 >
                   🙏 <span>{post.likes}</span>
@@ -141,6 +143,8 @@ const FeedPost: React.FC<FeedPostProps> = ({
                     bg-[var(--bg-muted)]
                     border border-[var(--border-default)]
                     flex items-center justify-center
+                    cursor-pointer
+                    hover:border-[var(--text-secondary)]
                   "
                 >
                   <SmileIcon className="w-5 h-5 text-[var(--text-primary)]" />
@@ -153,6 +157,8 @@ const FeedPost: React.FC<FeedPostProps> = ({
                     border border-[var(--border-default)]
                     bg-[var(--bg-muted)]
                     flex items-center justify-center
+                    cursor-pointer
+                    hover:border-[var(--text-secondary)]
                   "
                 >
                   <MessageIcon className="w-5 h-5 text-[var(--text-primary)]" />

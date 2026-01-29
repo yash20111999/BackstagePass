@@ -64,6 +64,7 @@ function ProfileMenu() {
               hover:bg-[var(--bg-muted)]
               text-[var(--text-primary)]
               font-medium
+              cursor-pointer
             "
           >
             {isDarkMode() ? (
@@ -121,7 +122,9 @@ export default function GlobalHeader() {
           </div>
 
           {/* Notification */}
-          <BellIcon className="w-8 h-8 text-[var(--text-primary)]" />
+          <button className="p-1 rounded-full hover:bg-[var(--bg-muted)] cursor-pointer">
+            <BellIcon className="w-6 h-6 text-[var(--text-primary)]" />
+          </button>
 
           {/* Avatar */}
           <ProfileMenu />
