@@ -25,80 +25,60 @@ const SidebarItem: React.FC<SidebarItemProps> = ({
     }
   };
 
-  // Base classes for the container
-  const containerClasses =
-    "h-12 px-4 flex items-center justify-between transition-colors duration-150";
+  // Base styling
+  const baseContainer = "h-12 px-4 flex items-center justify-between transition-colors duration-150";
+  const activeStyles = "rounded-l-full bg-[var(--bg-page)]";
+  const unlockedInactiveHover = "hover:bg-[var(--bg-muted)] rounded-l-full";
+  const lockedStyles = "cursor-not-allowed opacity-60";
+  const unlockedStyle = "cursor-pointer";
+  
+  // Text styling
+  const activeText = "text-[var(--text-primary)] font-semibold";
+  const inactiveText = "text-[var(--text-secondary)] font-medium";
+  
+  // Icon styling
+  const checkCircle = "w-5 h-5 rounded-full bg-[var(--accent-success)] flex items-center justify-center";
+  const lockIcon = "w-5 h-5 text-[var(--text-secondary)]";
+  const checkMark = "w-3 h-3 text-[var(--bg-page)]";
+  
+  // Inward arc positioning
+  const arcTop = "absolute -top-4 right-0 text-[var(--bg-page)] pointer-events-none z-5";
+  const arcBottom = "absolute -bottom-4 right-0 text-[var(--bg-page)] rotate-[270deg] pointer-events-none z-5";
 
-  // Determine cursor and hover effects based on state
-  let interactionClasses = "";
-  if (isLocked) {
-    interactionClasses = "cursor-not-allowed opacity-60";
-  } else {
-    interactionClasses = "cursor-pointer";
-    if (!isActive) {
-      // For unlocked but inactive days, add a subtle hover effect
-      interactionClasses += " hover:bg-[var(--bg-muted)] rounded-l-full";
-    }
-  }
-
-  // Determine styling for the active pill state
-  const activeStateClasses = isActive
-    ? "rounded-l-full bg-[var(--bg-page)]"
-    : "";
-
-  // Determine text styling based on state
-  const textClasses = isActive
-    ? "text-[var(--text-primary)] font-semibold"
-    : "text-[var(--text-secondary)] font-medium";
+  // Determine interaction classes
+  const interactionClasses = isLocked 
+    ? lockedStyles 
+    : (unlockedStyle + (!isActive ? ` ${unlockedInactiveHover}` : ""));
 
   return (
     <div
       onClick={handleClick}
-      className={`${containerClasses} ${activeStateClasses} ${interactionClasses}`}
+      className={`${baseContainer} ${isActive ? activeStyles : ""} ${interactionClasses}`}
       style={isActive ? { position: "relative" } : undefined}
     >
       {/* LEFT CONTENT */}
-      <div className={`flex items-center gap-1.5 ${textClasses}`}>
+      <div className={`flex items-center gap-1.5 ${isActive ? activeText : inactiveText}`}>
         <span className="text-sm">Day - {dayNumber}</span>
       </div>
 
       {/* RIGHT ICON */}
       {isLocked ? (
-        <LockIcon className="w-5 h-5 text-[var(--text-secondary)]" />
+        <LockIcon className={lockIcon} />
       ) : isActive ? (
-        <div className="w-5 h-5 rounded-full bg-[var(--accent-success)] flex items-center justify-center">
-          <CheckIcon className="w-3 h-3 text-[var(--bg-page)]" />
+        <div className={checkCircle}>
+          <CheckIcon className={checkMark} />
         </div>
       ) : null}
 
       {isActive && (
         <>
           {/* Top-right inward arc */}
-          <div
-            className="
-              absolute
-              -top-4
-              right-0
-              text-[var(--bg-page)]
-              pointer-events-none
-              z-5
-            "
-          >
+          <div className={arcTop}>
             <InwardArc />
           </div>
 
           {/* Bottom-right inward arc */}
-          <div
-            className="
-              absolute
-              -bottom-4
-              right-0
-              text-[var(--bg-page)]
-              rotate-[270deg]
-              pointer-events-none
-              z-5
-            "
-          >
+          <div className={arcBottom}>
             <InwardArc />
           </div>
         </>

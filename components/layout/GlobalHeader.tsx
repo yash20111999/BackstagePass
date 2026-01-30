@@ -7,6 +7,12 @@ import { useState } from "react";
 
 function ProfileMenu() {
   const [open, setOpen] = useState(false);
+  
+  // Styling constants
+  const profileButton = "w-8 h-8 rounded-full overflow-hidden cursor-pointer border border-[var(--border-default)]";
+  const dropdownContainer = "absolute right-0 mt-2 w-36 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-default)] shadow-sm z-50";
+  const menuButton = "w-full px-3 py-2 flex items-center gap-2 text-sm hover:bg-[var(--bg-muted)] text-[var(--text-primary)] font-medium cursor-pointer";
+  
   function isDarkMode() {
     return document.documentElement.classList.contains("dark");
   }
@@ -22,9 +28,9 @@ function ProfileMenu() {
   return (
     <div className="relative cursor-pointer">
       {/* Profile icon */}
-      <button
+      <button 
         onClick={() => setOpen(!open)}
-        className="w-8 h-8 rounded-full overflow-hidden cursor-pointer border border-[var(--border-default)]"
+        className={profileButton}
       >
         <Image
           src="https://i.pravatar.cc/40?img=1"
@@ -37,35 +43,10 @@ function ProfileMenu() {
 
       {/* Dropdown */}
       {open && (
-        <div
-          className="
-            absolute
-            right-0
-            mt-2
-            w-36
-            rounded-lg
-            bg-[var(--bg-surface)]
-            border
-            border-[var(--border-default)]
-            shadow-sm
-            z-50
-          "
-        >
+        <div className={dropdownContainer}>
           <button
             onClick={toggleTheme}
-            className="
-              w-full
-              px-3
-              py-2
-              flex
-              items-center
-              gap-2
-              text-sm
-              hover:bg-[var(--bg-muted)]
-              text-[var(--text-primary)]
-              font-medium
-              cursor-pointer
-            "
+            className={menuButton}
           >
             {isDarkMode() ? (
               <>
